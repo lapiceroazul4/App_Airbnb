@@ -1,10 +1,5 @@
-FROM node:20
+FROM php:8.1-apache
 
-WORKDIR /web_airbnbs
-COPY package.json .
-RUN npm install
+COPY . /var/www/html/web1
 
-EXPOSE 3000
-
-COPY . .
-CMD npm start
+CMD chmod -R 777 /var/www/html/web1

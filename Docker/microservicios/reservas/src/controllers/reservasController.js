@@ -37,8 +37,8 @@ router.post("/reservas", async (req, res) => {
   try {
       // Obtener nombres del cliente y del Airbnb
       const [clientResponse, airbnbResponse] = await Promise.all([
-          axios.get(`http://localhost:3001/usuarios/${client_id}`),
-          axios.get(`http://localhost:3002/airbnbs/id/${airbnb_id}`)
+          axios.get(`http://usuarios:3001/usuarios/${client_id}`),
+          axios.get(`http://airbnbs:3002/airbnbs/id/${airbnb_id}`)
       ]);
 
       const client_name = clientResponse.data[0].name;
