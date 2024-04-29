@@ -1,4 +1,4 @@
-# Para ejecutar los microservicios localmente, sigue estos pasos
+# Para ejecutar los microservicios localmente
 
 1. Abre una terminal en la carpeta raíz del proyecto.
 2. Ejecuta el siguiente comando para iniciar cada microservicio:
