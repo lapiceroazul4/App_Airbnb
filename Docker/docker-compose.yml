@@ -11,33 +11,24 @@ services:
       - 3316
     volumes:
       - ./db:/docker-entrypoint-initdb.d
-
-  transferencia_df:
-    build: ./transferencia_df
-    depends_on:
-      - db
-
   usuarios:
     build: ./microservicios/usuarios
     depends_on:
       - db
     ports:
       - 3001:3001
-
   airbnbs:
     build: ./microservicios/airbnbs
     depends_on:
       - db
     ports:
-      - 3002:3002
-      
+      - 3002:3002    
   reservas:
     build: ./microservicios/reservas
     depends_on:
       - db
     ports:
       - 3003:3003
-
   web:
     build: ./web
     depends_on:
@@ -46,5 +37,9 @@ services:
       - reservas
     ports:
       - 3000:3000
+  transferencia_df:
+    build: ./transferencia_df
+    depends_on:
+      - db
 networks:
   airbnbs_platform:
