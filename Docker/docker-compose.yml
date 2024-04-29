@@ -1,7 +1,6 @@
 services:
   db:
     image: mysql
-    container_name: db
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=password
@@ -12,70 +11,40 @@ services:
       - 3316
     volumes:
       - ./db:/docker-entrypoint-initdb.d
-    networks:
-      - airbnbs_platform
 
   transferencia_df:
     build: ./transferencia_df
-    container_name: transferencia_df
     depends_on:
       - db
-    links:
-      - db
-    networks:
-      - airbnbs_platform
-  
+
   usuarios:
     build: ./microservicios/usuarios
-    container_name: micro_usuarios
     depends_on:
       - db
-    links:
-      - db
-    networks:
-      - airbnbs_platform
     ports:
       - 3001:3001
 
   airbnbs:
     build: ./microservicios/airbnbs
-    container_name: micro_airbnbs
     depends_on:
       - db
-    links:
-      - db
-    networks:
-      - airbnbs_platform
     ports:
       - 3002:3002
       
   reservas:
     build: ./microservicios/reservas
-    container_name: micro_reservas
     depends_on:
       - db
-    links:
-      - db
-    networks:
-      - airbnbs_platform
     ports:
       - 3003:3003
 
   web:
     build: ./web
-    container_name: web_airbnbs
     depends_on:
       - usuarios
       - airbnbs
       - reservas
-    links:
-      - usuarios
-      - airbnbs
-      - reservas
-    networks:
-      - airbnbs_platform
     ports:
       - 3000:3000
-
 networks:
   airbnbs_platform:
