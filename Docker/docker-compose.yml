@@ -11,25 +11,29 @@ services:
     volumes:
       - ./db:/docker-entrypoint-initdb.d
   usuarios:
-    build: ./microservicios/usuarios
+    image: mitgar14/usuarios
+    #build: ./microservicios/usuarios
     depends_on:
       - db
     ports:
       - 3001:3001
   airbnbs:
-    build: ./microservicios/airbnbs
+    image: mitgar14/airbnbs
+    #build: ./microservicios/airbnbs
     depends_on:
       - db
     ports:
       - 3002:3002    
   reservas:
-    build: ./microservicios/reservas
+    image: mitgar14/reservas
+    #build: ./microservicios/reservas
     depends_on:
       - db
     ports:
       - 3003:3003
   web1:
-    build: ./web
+    image: mitgar14/web-airbnbs
+    #build: ./web
     depends_on:
       - usuarios
       - airbnbs
@@ -37,7 +41,8 @@ services:
     volumes:
       - ./web/html1:/var/www/html/
   web2:
-    build: ./web
+    image: mitgar14/web-airbnbs
+    #build: ./web
     depends_on:
       - usuarios
       - airbnbs
@@ -45,14 +50,16 @@ services:
     volumes:
       - ./web/html2:/var/www/html/
   haproxy:
-    build: ./haproxy
+    image: mitgar14/haproxy-airbnbs
+    #build: ./haproxy
     depends_on:
       - web1
       - web2
     ports:
       - "5080:80"
   transferencia_df:
-    build: ./transferencia_df
+    image: mitgar14/transferencia_df-airbnbs
+    #build: ./transferencia_df
     depends_on:
       - db
 networks:
