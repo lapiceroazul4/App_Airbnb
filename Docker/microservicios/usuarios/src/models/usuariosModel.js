@@ -1,8 +1,8 @@
 const mysql = require('mysql2/promise');
 const connection = mysql.createPool({
-    host: "db",
+    host: "localhost",
     user: "root",
-    password: "password",
+    password: "",
     database: "airbnb_app"
 });
 

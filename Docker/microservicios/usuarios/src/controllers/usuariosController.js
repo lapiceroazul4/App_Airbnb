@@ -6,14 +6,14 @@ router.get("/usuarios", async (req, res) => {
   var result;
   result = await usuariosModel.traerUsuarios();
   res.json(result);
-}); // funciona, no tocar
+});
 
 router.get("/usuarios/:id", async (req, res) => {
   const id = req.params.id;
   var result;
   result = await usuariosModel.traerUsuario(id);
   res.json(result[0]);
-}); // funciona, no tocar
+});
 
 router.get("/user/validation", async (req, res) => {
   const email = req.query.email;
@@ -37,13 +37,13 @@ router.post("/usuarios/crearusuario", async (req, res) => {
     password,
     email
   );
-  res.send("usuario creado");
-}); // funciona, no tocar
+  res.send("El usuario ha sido creado");
+});
 
 router.delete("/usuarios/:id", async (req, res) => {
   const id = req.params.id;
   var result = await usuariosModel.borrarUsuario(id);
-  res.send("usuario eliminado");
-}); // funciona, no tocar
+  res.send("El usuario ha sido eliminado");
+});
 
 module.exports = router;

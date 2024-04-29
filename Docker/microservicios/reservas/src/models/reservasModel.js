@@ -2,20 +2,20 @@ const mysql = require("mysql2/promise");
 
 // Configurar la conexión a la base de datos
 const pool = mysql.createPool({
-  host: "db",
+  host: "localhost",
   user: "root",
-  password: "password",
+  password: "",
   database: "airbnb_app"
 });
 
 // Función para crear una reserva
-async function crearReserva({ airbnb_id, user_id}) {
+async function crearReserva({airbnb_id, airbnb_name, host_id, client_id, client_name}) {
     try {
       const [rows] = await pool.execute(
-        'INSERT INTO micro_reservas (airbnb_id, user_id, fecha_reserva) VALUES (?, ?, NOW())',
-        [airbnb_id, user_id]
+        'INSERT INTO micro_reservas (airbnb_id, airbnb_name, host_id, client_id, client_name, reservation_date) VALUES (?, ?, ?, ?, ?, NOW())',
+        [airbnb_id, airbnb_name, host_id, client_id, client_name]
       );
-      return rows.insertId; // Retorna el ID de la reserva creada
+      return rows.insertId;
     } catch (error) {
       throw error;
     }
@@ -35,36 +35,48 @@ async function crearReserva({ airbnb_id, user_id}) {
   async function obtenerReservaPorUserID(user_id) {
     try {
       const [rows] = await pool.execute(
-        'SELECT * FROM micro_reservas WHERE user_id = ?',
+        'SELECT * FROM micro_reservas WHERE client_id = ?',
         [user_id]
       );
-      return rows; // Retorna la primera reserva encontrada
+      return rows;
     } catch (error) {
       throw error;
     }
   }
-  
-  // Función para actualizar una reserva
-  async function actualizarReserva(reserva_id, { airbnb_id, user_id, fecha }) {
+
+  // Función para obtener una reserva por su reservation_id
+  async function obtenerReservaPorReservationID(reservation_id) {
     try {
-      await pool.execute(
-        'UPDATE micro_reservas SET airbnb_id = ?, user_id = ? WHERE reserva_id = ?',
-        [airbnb_id, user_id, fecha, reserva_id]
+      const [rows] = await pool.execute(
+        'SELECT * FROM micro_reservas WHERE reservation_id = ?',
+        [reservation_id]
       );
-      return true; // Indica que la reserva se actualizó correctamente
+      return rows;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async function obtenerReservaPorHostID(host_id) {
+    try {
+      const [rows] = await pool.execute(
+        'SELECT * FROM micro_reservas WHERE host_id = ?',
+        [host_id]
+      );
+      return rows;
     } catch (error) {
       throw error;
     }
   }
   
   // Función para eliminar una reserva
-  async function eliminarReserva(reserva_id) {
+  async function eliminarReserva(reservation_id) {
     try {
       await pool.execute(
-        'DELETE FROM micro_reservas WHERE reserva_id = ?',
-        [reserva_id]
+        'DELETE FROM micro_reservas WHERE reservation_id = ?',
+        [reservation_id]
       );
-      return true; // Indica que la reserva se eliminó correctamente
+      return true;
     } catch (error) {
       throw error;
     }
@@ -74,6 +86,7 @@ async function crearReserva({ airbnb_id, user_id}) {
     crearReserva,
     obtenerTodasLasReservas,
     obtenerReservaPorUserID,
-    actualizarReserva,
+    obtenerReservaPorReservationID,
+    obtenerReservaPorHostID,
     eliminarReserva
   };

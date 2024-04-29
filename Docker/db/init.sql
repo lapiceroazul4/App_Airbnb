@@ -40,5 +40,6 @@ CREATE TABLE micro_reservas (
 	reservation_date DATETIME NULL
 );
 
-INSERT INTO micro_users (user_id, name, role, password, email) VALUES (1, 'admin', 'Admin', 'admin', 'admin@admin.com');
-INSERT INTO micro_users (user_id, name, role, password, email) VALUES (2, 'Cerati', 'Cliente', '1234', 'cerati@uao.edu.co');
+INSERT INTO micro_users (user_id, name, role, password, email) VALUES (1000, 'Admin', 'Admin', 'admin', 'admin@admin.com');
+INSERT INTO micro_users (user_id, name, role, password, email) VALUES (2000, 'Charly', 'Host', '1234', 'charly@hotmail.com');
+INSERT INTO micro_users (user_id, name, role, password, email) VALUES (3000, 'Cerati', 'Cliente', '1234', 'cerati@gmail.com');
