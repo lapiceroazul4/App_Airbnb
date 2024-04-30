@@ -48,7 +48,7 @@
 
     <div class="container text-center mt-5">
         <h2>Welcome <?php echo $name; ?>!</h2>
-        <p class="lead">This is your <?php echo $role; ?> page</p>
+        <p class="lead">This is your <?php echo $role; ?> page (first page)</p>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
