@@ -10,4 +10,4 @@ app.use(require("./rutas.js"));
 
 app.listen(3000, () => {
     console.log(`Servidor de la página ejecutándose en puerto 3000.`);
-  });
+});
