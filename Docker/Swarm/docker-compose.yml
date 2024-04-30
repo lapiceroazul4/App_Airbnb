@@ -38,8 +38,6 @@ services:
       - usuarios
       - airbnbs
       - reservas
-    volumes:
-      - ./web/html1:/var/www/html/
   web2:
     image: mitgar14/web-airbnbs
     #build: ./web
@@ -47,8 +45,6 @@ services:
       - usuarios
       - airbnbs
       - reservas
-    volumes:
-      - ./web/html2:/var/www/html/
   haproxy:
     image: mitgar14/haproxy-airbnbs
     #build: ./haproxy
