@@ -31,14 +31,28 @@ services:
       - db
     ports:
       - 3003:3003
-  web:
+  web1:
+    #image: mitgar14/web-airbnbs
     build: ./web
     depends_on:
       - usuarios
       - airbnbs
       - reservas
+  web2:
+    #image: mitgar14/web-airbnbs
+    build: ./web
+    depends_on:
+      - usuarios
+      - airbnbs
+      - reservas
+  haproxy:
+    #image: mitgar14/haproxy-airbnbs
+    build: ./haproxy
+    depends_on:
+      - web1
+      - web2
     ports:
-      - 8080:80
+      - "5080:80"
   transferencia_df:
     #image: mitgar14/transferencia_df-airbnbs
     build: ./transferencia_df
