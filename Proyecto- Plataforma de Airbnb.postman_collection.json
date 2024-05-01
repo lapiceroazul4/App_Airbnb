@@ -1,0 +1,991 @@
+{
+	"info": {
+		"_postman_id": "986a6a60-e1b4-43d4-b0c6-0f1771f7b8ed",
+		"name": "Proyecto: Plataforma de Airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33335468"
+	},
+	"item": [
+		{
+			"name": "localhost",
+			"item": [
+				{
+					"name": "micro_usuarios",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "GetUsuarios",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3001/usuarios",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetUsuarioPorId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3001/usuarios/400000",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"usuarios",
+												"400000"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ValidacionUsuario",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/user/validation?email=elizabeth_78@outlook.com&password=NH4fjrV8",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"user",
+												"validation"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "elizabeth_78@outlook.com"
+												},
+												{
+													"key": "password",
+													"value": "NH4fjrV8"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "PostUsuario",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"user_id\": \"400000\",\r\n    \"name\": \"Cerati\",\r\n    \"role\": \"Cliente\",\r\n    \"password\": \"Bocanada\",\r\n    \"email\": \"cerati@hotmail.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/usuarios/crearusuario",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"usuarios",
+												"crearusuario"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "DeleteUsuario",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3001/usuarios/400000",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"usuarios",
+												"400000"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "micro_airbnbs",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "GetAirbnbs",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3002/airbnbs",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetAirbnbsPorId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3002/airbnbs/id/777",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"id",
+												"777"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetAirbnbsPorHostId",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3002/airbnbs/hostId/19902271",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"hostId",
+												"19902271"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetAirbnbsPorRoomType",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3002/airbnbs/roomType/Entire%20home%2Fapt",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"roomType",
+												"Entire%20home%2Fapt"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "PostAirbnbs",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"20070917\",\r\n    \"name\": \"Rental unit in New York\",\r\n    \"host_id\": \"33333333\",\r\n    \"host_name\": \"Fernando\",\r\n    \"neighbourhood_group\": \"Bronx\",\r\n    \"neighbourhood\": \"Riverdale\",\r\n    \"latitude\": \"40.895314\",\r\n    \"longitude\": \"-73.912993\",\r\n    \"room_type\": \"Entire home/apt\",\r\n    \"price\": \"85\",\r\n    \"minimum_nights\": \"30\",\r\n    \"number_of_reviews\": \"453\",\r\n    \"rating\": \"4.38 \",\r\n    \"rooms\": \"2\",\r\n    \"beds\": \"2\",\r\n    \"bathrooms\": \"2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3002/airbnbs/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "PUT",
+							"item": [
+								{
+									"name": "PutAirbnbs",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"host_name\": \"Hernán\",\r\n    \"price\": \"200\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3002/airbnbs/20070917",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"20070917"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "DeleteAirbnbs",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3002/airbnbs/20070917",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"20070917"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "micro_reservas",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "GetReservas",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3003/reservas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3003",
+											"path": [
+												"reservas"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetReservasUserID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3003/reservas/userID/400000",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3003",
+											"path": [
+												"reservas",
+												"userID",
+												"400000"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetReservasReservationID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3003/reservas/reservationID/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3003",
+											"path": [
+												"reservas",
+												"reservationID",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "PostReservas",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"client_id\": \"400000\",\r\n  \"airbnb_id\": \"1027808\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3003/reservas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3003",
+											"path": [
+												"reservas"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "DeleteReserva",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3003/reservas/id/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3003",
+											"path": [
+												"reservas",
+												"id",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "servidorUbuntu",
+			"item": [
+				{
+					"name": "micro_usuarios",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "GetUsuarios",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3001/usuarios",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3001",
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetUsuarioPorId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3001/usuarios/674232",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3001",
+											"path": [
+												"usuarios",
+												"674232"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ValidacionUsuario",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"seru@hotmail.com\",\r\n    \"password\": \"PianoBar\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://192.168.100.3:3001/user/validation",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3001",
+											"path": [
+												"user",
+												"validation"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "PostUsuario",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"user_id\": \"674232\",\r\n    \"name\": \"Fito\",\r\n    \"role\": \"Cliente\",\r\n    \"password\": \"ElAmorDespuesDelAmor\",\r\n    \"email\": \"fito@hotmail.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://192.168.100.3:3001/usuarios/crearusuario",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3001",
+											"path": [
+												"usuarios",
+												"crearusuario"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "DeleteUsuario",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3001/usuarios/674232",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3001",
+											"path": [
+												"usuarios",
+												"674232"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "micro_airbnbs",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "GetAirbnbs",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3002/airbnbs",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetAirbnbsPorId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3002/airbnbs/id/40658238",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"id",
+												"40658238"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetAirbnbsPorHostId",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://192.168.100.3:3002/airbnbs/hostId/19902271",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"hostId",
+												"19902271"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetAirbnbsPorRoomType",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3002/airbnbs/roomType/Entire%20home%2Fapt",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"roomType",
+												"Entire%20home%2Fapt"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "PostAirbnbs",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"20070917\",\r\n    \"name\": \"Rental unit in New York\",\r\n    \"host_id\": \"33333333\",\r\n    \"host_name\": \"Fernando\",\r\n    \"neighbourhood_group\": \"Bronx\",\r\n    \"neighbourhood\": \"Riverdale\",\r\n    \"latitude\": \"40.895314\",\r\n    \"longitude\": \"-73.912993\",\r\n    \"room_type\": \"Entire home/apt\",\r\n    \"price\": \"85\",\r\n    \"minimum_nights\": \"30\",\r\n    \"number_of_reviews\": \"453\",\r\n    \"rating\": \"4.38 \",\r\n    \"rooms\": \"2\",\r\n    \"beds\": \"2\",\r\n    \"bathrooms\": \"2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://192.168.100.3:3002/airbnbs/",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "PUT",
+							"item": [
+								{
+									"name": "PutAirbnbs",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"host_name\": \"Hernán\",\r\n    \"price\": \"200\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://192.168.100.3:3002/airbnbs/20070917",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"20070917"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "DeleteAirbnbs",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3002/airbnbs/20070917",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3002",
+											"path": [
+												"airbnbs",
+												"20070917"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "micro_reservas",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "GetReservas",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3003/reservas",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3003",
+											"path": [
+												"reservas"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetReservasID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3003/reservas/id/1",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3003",
+											"path": [
+												"reservas",
+												"id",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "PostReservas",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"user_id\": \"20070917\",\r\n  \"airbnb_id\": \"1027808\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://192.168.100.3:3003/reservas",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3003",
+											"path": [
+												"reservas"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "DeleteReserva",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://192.168.100.3:3003/reservas/id/1",
+											"protocol": "http",
+											"host": [
+												"192",
+												"168",
+												"100",
+												"3"
+											],
+											"port": "3003",
+											"path": [
+												"reservas",
+												"id",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
