@@ -8,6 +8,11 @@ services:
       - 3316:3306
     expose:
       - 3316
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
     volumes:
       - ./db:/docker-entrypoint-initdb.d
   usuarios:
@@ -57,6 +62,17 @@ services:
     #image: mitgar14/transferencia_df-airbnbs
     build: ./transferencia_df
     depends_on:
+      db:
+        condition: service_healthy
+  pyspark:
+    build: ./pySpark
+    depends_on:
       - db
+      - usuarios
+      - airbnbs
+      - reservas
+      - web1
+      - web2
+      - transferencia_df
 networks:
   airbnbs_platform:
