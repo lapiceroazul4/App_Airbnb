@@ -62,6 +62,7 @@ services:
     #image: mitgar14/transferencia_df-airbnbs
     build: ./transferencia_df
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 networks:
   airbnbs_platform:
