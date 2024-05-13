@@ -8,6 +8,11 @@ services:
       - 3316:3306
     expose:
       - 3316
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
     volumes:
       - ./db:/docker-entrypoint-initdb.d
   usuarios:
