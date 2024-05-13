@@ -6,13 +6,6 @@ services:
       - MYSQL_DATABASE=airbnb_app
     ports:
       - 3316:3306
-    expose:
-      - 3316
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 20s
-      timeout: 10s
-      retries: 10
     volumes:
       - ./db:/docker-entrypoint-initdb.d
   usuarios:
@@ -62,7 +55,6 @@ services:
     #image: mitgar14/transferencia_df-airbnbs
     build: ./transferencia_df
     depends_on:
-      db:
-        condition: service_healthy
+      - db
 networks:
   airbnbs_platform:
