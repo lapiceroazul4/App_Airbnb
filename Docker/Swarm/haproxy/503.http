@@ -1,8 +1,0 @@
-HTTP/1.0 503 Service Unavailable
-Cache-Control: no-cache
-Connection: close
-Content-Type: text/html
-
-<html><body><h1>503 - Se cayó el servidor</h1>
-Estos de EMCALI me cortaron de nuevo la luz
-</body></html>
