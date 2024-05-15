@@ -1,13 +1,8 @@
 services:
   db:
-    image: mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=airbnb_app
+    image: mitgar14/mysql-airbnbs
     ports:
       - 3316:3306
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d
   usuarios:
     image: mitgar14/usuarios
     #build: ./microservicios/usuarios
@@ -50,7 +45,7 @@ services:
       - web1
       - web2
     ports:
-      - "5080:80"
+      - 5080:80
   transferencia_df:
     image: mitgar14/transferencia_df-airbnbs
     #build: ./transferencia_df
