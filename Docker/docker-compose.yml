@@ -1,6 +1,7 @@
 services:
   db:
     image: mitgar14/mysql-airbnbs
+    #build: ./db
     ports:
       - 3316:3306
   usuarios:
