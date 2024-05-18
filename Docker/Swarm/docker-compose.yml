@@ -1,0 +1,62 @@
+services:
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=airbnb_app
+    ports:
+      - 3316:3306
+    expose:
+      - 3316
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+  usuarios:
+    image: mitgar14/usuarios
+    #build: ./microservicios/usuarios
+    depends_on:
+      - db
+    ports:
+      - 3001:3001
+  airbnbs:
+    image: mitgar14/airbnbs
+    #build: ./microservicios/airbnbs
+    depends_on:
+      - db
+    ports:
+      - 3002:3002    
+  reservas:
+    image: mitgar14/reservas
+    #build: ./microservicios/reservas
+    depends_on:
+      - db
+    ports:
+      - 3003:3003
+  web1:
+    image: mitgar14/web-airbnbs
+    #build: ./web
+    depends_on:
+      - usuarios
+      - airbnbs
+      - reservas
+  web2:
+    image: mitgar14/web-airbnbs
+    #build: ./web
+    depends_on:
+      - usuarios
+      - airbnbs
+      - reservas
+  haproxy:
+    image: mitgar14/haproxy-airbnbs
+    #build: ./haproxy
+    depends_on:
+      - web1
+      - web2
+    ports:
+      - "5080:80"
+  transferencia_df:
+    image: mitgar14/transferencia_df-airbnbs
+    #build: ./transferencia_df
+    depends_on:
+      - db
+networks:
+  airbnbs_platform:
