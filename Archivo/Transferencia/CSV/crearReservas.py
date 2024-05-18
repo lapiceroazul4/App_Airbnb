@@ -47,7 +47,8 @@ def generate_reservations_with_repeated_clients(listings, clients, num_reservati
             'host_id': listing['host_id'],
             'client_id': client[0],
             'client_name': client[1],
-            'reservation_date': generate_random_date()
+            'reservation_date': generate_random_date(),
+            'price': listing['price']
         }
         reservations.append(reservation)
     
