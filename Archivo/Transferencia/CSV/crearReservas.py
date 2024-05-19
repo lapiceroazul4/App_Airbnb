@@ -6,10 +6,6 @@ from datetime import datetime, timedelta
 file_path = 'Archivo/Transferencia/new_york_listings_2024.csv'
 listings_df = pd.read_csv(file_path)
 
-# Display the first few rows of the dataframe to understand its structure
-#print(listings_df.head())
-
-
 def generate_random_date():
     start_date = datetime(2000, 1, 1)
     end_date = datetime.now()
@@ -44,6 +40,8 @@ def generate_reservations_with_repeated_clients(listings, clients, num_reservati
         reservation = {
             'airbnb_id': listing['id'],
             'airbnb_name': listing['name'],
+            'neighbourhood_group': listing['neighbourhood_group'],
+            'room_type': listing['room_type'],
             'host_id': listing['host_id'],
             'client_id': client[0],
             'client_name': client[1],
@@ -57,13 +55,10 @@ def generate_reservations_with_repeated_clients(listings, clients, num_reservati
 # Generate 5 reservations per listing for the new simulation with repeated clients
 reservations_df_repeated_clients = generate_reservations_with_repeated_clients(listings_df, unique_clients, 5)
 
-#reservations_df_multiple = generate_multiple_reservations(listings_df, 5)
-#reservations_df = pd.DataFrame(reservations)
-
 # Save reservations to a CSV file
-output_file_path = 'Archivo/Transferencia/reservations.csv'
+output_file_path = 'clusterAirbnbsApache/reservations.csv'
 reservations_df_repeated_clients.to_csv(output_file_path, index=False)
 
 # Display the first few rows of the reservations DataFrame
-print(reservations_df_repeated_clients.head())
-print(len(reservations_df_repeated_clients))
+#print(reservations_df_repeated_clients.head())
+#print(len(reservations_df_repeated_clients))
