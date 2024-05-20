@@ -3,6 +3,7 @@
 #from pyspark.ml.regression import LinearRegression
 from pyspark.sql import SparkSession
 spark=SparkSession.builder.getOrCreate()
+from pyspark.sql.functions import month, year, to_date
 #from pyspark.ml.evaluation import RegressionEvaluator
 
 #Creación del RDD
@@ -38,12 +39,19 @@ hostOrganizados=cantidadHosts.sortBy(lambda x:x[1], ascending=False)
 hostsDestacados=hostOrganizados.take(3)
 rdd_hostsDestacados = spark.sparkContext.parallelize(hostsDestacados)
 
+#Para calcular que mes es el más demandado
+
+df_fechas = df.withColumn("reservation_date", to_date(df.reservation_date, 'dd/MM/yyyy'))
+df_fechas = df_fechas.withColumn("Mes", month(df_fechas.reservation_date))
+reservas_por_mes = df_fechas.groupBy("Mes").count()
+reservas_por_mes = reservas_por_mes.orderBy("Mes")
+
 #---------------------------------------------------------
 
 #Sección de resultados:
 
 # Convertir RDDs a DataFrames
-df_totalDinero = spark.createDataFrame([(totalDinero,)], ["Total de dinero genrado"])
+df_totalDinero = spark.createDataFrame([(totalDinero,)], ["Total de dinero generado"])
 df_total_reservas_generadas = spark.createDataFrame([(total_reservas_generadas,)], ["Total Reservas Generadas"])
 df_totalTipoHabitacion = totalTipoHabitacion.toDF(["Tipo Habitacion", "Total"])
 df_totalDistritoAirbnb = totalDistritoAirbnb.toDF(["Distrito", "Total"])
@@ -63,6 +71,8 @@ print("Clientes Destacados:")
 df_clientesDestacados.show()
 print("Hosts Destacados:")
 df_hostsDestacados.show()
+print("Reservas por Mes:")
+reservas_por_mes.show()
 
 #---------------------------------------------------------
 
@@ -73,5 +83,5 @@ df_totalTipoHabitacion.write.mode("overwrite").csv('/home/vagrant/clusterAirbnb/
 df_totalDistritoAirbnb.write.mode("overwrite").csv('/home/vagrant/clusterAirbnb/reservasDistritoAirbnb')
 df_clientesDestacados.write.mode("overwrite").csv('/home/vagrant/clusterAirbnb/clientesDestacados')
 df_hostsDestacados.write.mode("overwrite").csv('/home/vagrant/clusterAirbnb/hostsDestacados')
-
+reservas_por_mes.write.mode("overwrite").csv('/home/vagrant/clusterAirbnb/reservasPorMes')
 #Cuando ya estén escritos los csv entonces moverlos a la carpeta compartida para el dashboard
