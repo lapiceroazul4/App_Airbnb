@@ -1,0 +1,5 @@
+google-cloud-bigquery==3.23.0,
+db-dtypes==1.2.0,
+pandas==2.2.2,
+pandas-gbq==0.19.1,
+google-auth==2.29.0,
