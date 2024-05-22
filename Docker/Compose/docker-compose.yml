@@ -64,15 +64,5 @@ services:
     depends_on:
       db:
         condition: service_healthy
-  pyspark:
-    build: ./pySpark
-    depends_on:
-      - db
-      - usuarios
-      - airbnbs
-      - reservas
-      - web1
-      - web2
-      - transferencia_df
 networks:
   airbnbs_platform:
