@@ -90,7 +90,7 @@ password = 'password'
 host = 'db'
 
 # Establecer la conexión
-for _ in range(5):
+for _ in range(6):
     try:
         conexion = mysql.connector.connect(
             host=host,
@@ -104,7 +104,7 @@ for _ in range(5):
         print(f"Error al conectar a MySQL: {err}")
         time.sleep(4)  # Espera 5 segundos antes de intentar de nuevo
 else:
-    print("No se pudo establecer la conexión después de 5 intentos.")
+    print("No se pudo establecer la conexión después de 5 intentos. Volver a intertarlo")
     sys.exit(1)
 
 print("La conexión con la DB ha sido exitosa:\n", conexion)
