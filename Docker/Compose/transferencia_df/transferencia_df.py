@@ -105,7 +105,6 @@ for _ in range(6):
         time.sleep(4)  # Espera 5 segundos antes de intentar de nuevo
 else:
     print("No se pudo establecer la conexión después de 5 intentos. Volver a intertarlo")
-    sys.exit(1)
 
 print("La conexión con la DB ha sido exitosa:\n", conexion)
 
