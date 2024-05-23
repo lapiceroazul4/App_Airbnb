@@ -38,18 +38,17 @@
             <nav class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="host.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mostrarAirbnbsHost.php">Mostrar Airbnbs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="misAirbnbs.php">Mis Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="crearAirbnbsHost.php">Crear Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="actualizarAirbnbsHost.php">Actualizar Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="eliminarAirbnbsHost.php">Eliminar Airbnbs</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="reservasHost.php" aria-current="page">Reservar Airbnbs</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="reservasHost.php" aria-current="page">Reservas Airbnbs</a></li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           <?php echo $name; ?>
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="misAirbnbs.php">Tus airbnbs</a></li>
-                          <li><a class="dropdown-item" href="../logout/logout.php">Cerrar sesión</a></li>
+                      <li><a class="dropdown-item" href="../logout/logout.php">Cerrar sesión</a></li>
                       </ul>
                   </li>
                 </ul>
@@ -57,7 +56,7 @@
         </div>
     </header>
 
-    <div class="container my-5">
+    <!--<div class="container my-5">
         <div class="row">
             <div class="col-md-12">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -66,7 +65,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="container my-5">
     <div class="row">
@@ -108,7 +107,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="crearReservaModal" tabindex="-1" aria-labelledby="crearReservaModalLabel"
+<!--<div class="modal fade" id="crearReservaModal" tabindex="-1" aria-labelledby="crearReservaModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -140,13 +139,13 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-<script>
+<!--<script>
     document.addEventListener('DOMContentLoaded', function() {
     var crearReservaBtn = document.getElementById('crearReservaBtn');
     crearReservaBtn.addEventListener('click', function() {
@@ -154,7 +153,7 @@
         form.submit();
     });
 });
-</script>
+</script>-->
 
 <script>
     window.onload = function() {

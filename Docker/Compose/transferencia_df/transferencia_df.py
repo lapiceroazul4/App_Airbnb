@@ -3,6 +3,7 @@ import numpy as np
 import mysql.connector
 import random
 import string
+import time
 
 # Leer el archivo CSV
 df = pd.read_csv('new_york_listings_2024.csv')
@@ -89,12 +90,23 @@ password = 'password'
 host = 'db'
 
 # Establecer la conexión
-conexion = mysql.connector.connect(
-    host=host,
-    database=database,
-    user=user,
-    password=password
-)
+for _ in range(5):
+    try:
+        conexion = mysql.connector.connect(
+            host=host,
+            database=database,
+            user=user,
+            password=password
+        )
+        print("La conexión con la DB ha sido exitosa:\n", conexion)
+        break
+    except mysql.connector.Error as err:
+        print(f"Error al conectar a MySQL: {err}")
+        time.sleep(4)  # Espera 5 segundos antes de intentar de nuevo
+else:
+    print("No se pudo establecer la conexión después de 5 intentos.")
+    sys.exit(1)
+
 print("La conexión con la DB ha sido exitosa:\n", conexion)
 
 cursor = conexion.cursor()

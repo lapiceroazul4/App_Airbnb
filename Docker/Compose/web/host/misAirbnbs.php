@@ -31,7 +31,7 @@
             <nav class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="host.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mostrarAirbnbsHost.php">Mostrar Airbnbs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="misAirbnbs.php">Mis Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="crearAirbnbsHost.php">Crear Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="actualizarAirbnbsHost.php">Actualizar Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="eliminarAirbnbsHost.php">Eliminar Airbnbs</a></li>
@@ -41,7 +41,6 @@
                           <?php echo $name; ?>
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="misAirbnbs.php">Tus airbnbs</a></li>
                           <li><a class="dropdown-item" href="../logout/logout.php">Cerrar sesión</a></li>
                       </ul>
                   </li>

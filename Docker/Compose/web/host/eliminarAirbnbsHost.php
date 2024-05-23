@@ -34,17 +34,16 @@
             <nav class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="host.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mostrarAirbnbsHost.php">Mostrar Airbnbs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="misAirbnbs.php">Mis Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="crearAirbnbsHost.php">Crear Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="actualizarAirbnbsHost.php">Actualizar Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link active" href="eliminarAirbnbsHost.php" aria-current="page">Eliminar Airbnbs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservasHost.php">Reservar Airbnbs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservasHost.php">Reservas Airbnbs</a></li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           <?php echo $name; ?>
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="misAirbnbs.php">Tus airbnbs</a></li>
                           <li><a class="dropdown-item" href="../logout/logout.php">Cerrar sesión</a></li>
                       </ul>
                   </li>

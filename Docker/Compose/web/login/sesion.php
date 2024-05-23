@@ -19,6 +19,11 @@ if ($response===false){
 
 $resp = json_decode($response);
 
+if ($resp === null || count($resp) == 0) {
+    header("Location:../index.html");
+    exit;
+}
+
 $user_id = $resp[0]->user_id;
 $name = $resp[0]->name;
 $role = $resp[0]->role;
