@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Airbnb Platform</title>
+    <title>Dashboard Reservas</title>
 </head>
 
 <body>
@@ -30,9 +30,9 @@
             </button>
             <nav class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="admin.php" aria-current="page">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.php">Inicio</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
                             Dashboard
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -57,10 +57,8 @@
             </nav>
         </div>
     </header>
-
-    <div class="container text-center mt-5">
-        <h2>Welcome <?php echo $name; ?>!</h2>
-        <p class="lead">This is your <?php echo $role; ?> page</p>
+    <div class="container text-center my-3">
+        <iframe title="clusterDashGBQ" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiZDRmZTQwYjItZDU0Mi00Mzg3LThiZGEtOTIwOWYxOWMyN2JkIiwidCI6IjY5M2NiZWEwLTRlZjktNDI1NC04OTc3LTc2ZTA1Y2I1ZjU1NiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

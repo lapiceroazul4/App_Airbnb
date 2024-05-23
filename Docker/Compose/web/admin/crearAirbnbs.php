@@ -36,12 +36,12 @@
                             Dashboard
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">PySpark</a></li>
+                            <li><a class="dropdown-item" href="pySpark.php">PySpark</a></li>
                             <li><a class="dropdown-item" href="powerBI.php">PowerBI</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="mostrarAirbnbs.php">Mostrar Airbnbs</a></li>
-                    <li class="nav-item"><a class="nav-link active"" href="crearAirbnbs.php" aria-current="page">Crear Airbnbs</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="crearAirbnbs.php" aria-current="page">Crear Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="actualizarAirbnbs.php">Actualizar Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="eliminarAirbnbs.php">Eliminar Airbnbs</a></li>
                     <li class="nav-item"><a class="nav-link" href="reservas.php">Reservar Airbnbs</a></li>

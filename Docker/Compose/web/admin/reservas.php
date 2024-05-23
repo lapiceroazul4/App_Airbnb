@@ -40,7 +40,7 @@
                             Dashboard
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">PySpark</a></li>
+                            <li><a class="dropdown-item" href="pySpark.php">PySpark</a></li>
                             <li><a class="dropdown-item" href="powerBI.php">PowerBI</a></li>
                         </ul>
                     </li>
