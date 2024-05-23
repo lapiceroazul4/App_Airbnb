@@ -6,7 +6,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == servidorAirbnb
+          - node.hostname == serverAirbnb
   usuarios:
     image: mitgar14/usuarios
     depends_on:
@@ -16,7 +16,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == servidorAirbnb
+          - node.hostname == serverAirbnb
   airbnbs:
     image: mitgar14/airbnbs
     depends_on:
@@ -26,7 +26,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == servidorAirbnb
+          - node.hostname == serverAirbnb
   reservas:
     image: mitgar14/reservas
     depends_on:
@@ -36,7 +36,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == servidorAirbnb
+          - node.hostname == serverAirbnb
   web1:
     image: mitgar14/web-airbnbs
     depends_on:
@@ -67,7 +67,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == servidorAirbnb
+          - node.hostname == serverAirbnb
   transferencia_df:
     image: mitgar14/transferencia_df-airbnbs
     depends_on:
