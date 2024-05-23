@@ -1,2 +1,6 @@
 pandas
 mysql-connector-python
+numpy
+random
+string
+time
