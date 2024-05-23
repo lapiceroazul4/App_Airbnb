@@ -3,36 +3,60 @@ services:
     image: mitgar14/mysql-airbnbs
     ports:
       - 3316:3306
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == servidorAirbnb
   usuarios:
     image: mitgar14/usuarios
     depends_on:
       - db
     ports:
       - 3001:3001
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == servidorAirbnb
   airbnbs:
     image: mitgar14/airbnbs
     depends_on:
       - db
     ports:
-      - 3002:3002    
+      - 3002:3002
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == servidorAirbnb
   reservas:
     image: mitgar14/reservas
     depends_on:
       - db
     ports:
       - 3003:3003
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == servidorAirbnb
   web1:
     image: mitgar14/web-airbnbs
     depends_on:
       - usuarios
       - airbnbs
       - reservas
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == workerAirbnb
   web2:
     image: mitgar14/web-airbnbs
     depends_on:
       - usuarios
       - airbnbs
       - reservas
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == workerAirbnb
   haproxy:
     image: mitgar14/haproxy-airbnbs
     depends_on:
@@ -40,9 +64,17 @@ services:
       - web2
     ports:
       - "5080:80"
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == servidorAirbnb
   transferencia_df:
     image: mitgar14/transferencia_df-airbnbs
     depends_on:
       - db
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == workerAirbnb
 networks:
   airbnbs_platform:
