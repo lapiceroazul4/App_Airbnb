@@ -52,7 +52,7 @@ $hostID = $resp[0]['host_id'];
 if ($response === false) {
     header("Location:../actualizarAirbnbsHost.php?error=true&id=$id");
 } else {
-    header("Location:../misAirbnbsHost.php?origin=put&success=true&id=$id&hostID=$hostID&hostName=$hostName");
+    header("Location:../misAirbnbs.php?origin=put&success=true&id=$id&hostID=$hostID&hostName=$hostName");
 }
 
 // Cerrar la conexión cURL

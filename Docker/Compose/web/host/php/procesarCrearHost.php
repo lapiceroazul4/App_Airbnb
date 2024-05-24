@@ -61,5 +61,5 @@ if ($response === false) {
 }
 // Cerrar la conexión cURL
 curl_close($ch);
-header("Location:../misAirbnbsHost.php?origin=post&success=true&id=$id&hostID=$idHost&hostName=$nameHost");
+header("Location:../misAirbnbs.php?origin=post&success=true&id=$id&hostID=$idHost&hostName=$nameHost");
 ?>
