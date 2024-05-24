@@ -28,9 +28,10 @@ It's essential to have Docker installed beforehand. We recommend using version 2
    - `Pass: admin`
 
 ### Using Docker Swarm:
+> **Recommendation:** The VMs must be named “serverAirbnb” and “workerAirbnb”, otherwise the deployment with Swarm will fail.
 
 1. Navigate to the `Docker/Swarm/` directory.
-2. Execute the following command to initialize the Swarm: `docker swarm init --advertise-addr localhost`.
+2. Execute the following command to initialize the Swarm: `docker swarm init --advertise-addr localhost`. Copy the token and insert it into the worker node.
 3. Deploy by executing: `docker stack deploy -c docker-compose.yml App_Airbnb`.
 4. Scale the web service by running: `docker service scale App_Airbnb_web1=3`. At this point, the web1 service will have 3 replicas; if you wish to change the number of replicas, simply replace the 3 with the desired value.
 5. If you want to scale another service, the process is similar and can be done as follows: `docker service scale App_Airbnb_'service_name'='number_of_replicas'`.
