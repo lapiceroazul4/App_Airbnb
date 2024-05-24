@@ -20,7 +20,11 @@
                 <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="role" name="role" placeholder="Rol" required>
+                <select class="form-control" id="role" name="role" required>
+                    <option value="" disabled selected>Selecciona tu rol</option>
+                    <option value="Host">Host</option>
+                    <option value="Cliente">Cliente</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
@@ -32,7 +36,7 @@
                 <button type="submit" class="btn btn-primary btn-block">Registrar</button>
             </div>
             <a href="../index.html" class="forgot">Volver a Inicio</a>
-        </form>
+        </form>        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
