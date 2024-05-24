@@ -7,7 +7,7 @@ from pyspark.sql.functions import month, year, to_date
 #from pyspark.ml.evaluation import RegressionEvaluator
 
 #Creación del RDD
-df = spark.read.options(header='True', inferSchema='True').csv('/home/vagrant/labSpark/clusterAirbnbsApache/reservations.csv')
+df = spark.read.options(header='True', inferSchema='True').csv('/home/vagrant/clusterAirbnbsApache/reservations.csv')
 rdd=df.rdd
 
 #Para calcular el total de dinero que se generan por las reservas

@@ -1,4 +1,6 @@
-# README.md
+## Before getting started
+First, start by cloning the repository using the following command:
+`git clone https://github.com/lapiceroazul4/App_Airbnb.git`
 
 ## 1. Check Docker Installation
 
@@ -22,8 +24,8 @@ It's essential to have Docker installed beforehand. We recommend using version 2
    `Pass: Admin`
    
 6. To check the HAProxy statistics, you can visit the following URL: `http://localhost:5080/haproxy?stats` using these credentials:
-   - `User: Admin`
-   - `Pass: Admin`
+   - `User: admin`
+   - `Pass: admin`
 
 ### Using Docker Swarm:
 
@@ -41,5 +43,39 @@ It's essential to have Docker installed beforehand. We recommend using version 2
    - `User: admin@admin.com`
    - `Pass: Admin`
 8. To check the HAProxy statistics, you can visit the following URL: `http://localhost:5080/haproxy?stats` using these credentials:
-   - `User: Admin`
-   - `Pass: Admin`
+   - `User: admin`
+   - `Pass: admin`
+
+## Data Processing Cluster
+
+### Prerequisites
+
+Ensure that the latest version of Spark is installed on your VM. The current version is 3.5.1, which can be downloaded from [this link](https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz).
+
+### Setup Instructions
+
+1. **Log into your Ubuntu server.**
+2. **Install required Python libraries using pip** `pip install -r requirements.txt` 
+3. **Navigate to the directory of the cloned repository:**
+   ```bash
+   cd App_Airbnb/
+4. **Move the clusterAirbnbsApache/ directory to your desired execution path (note: you must update the file path in the application where the CSV is read):
+   ```bash
+   sudo mv clusterAirbnbsApache/ /home/vagrant/
+5. **Create a directory in /home/vagrant to store the results:**
+   ```bash
+   sudo mkdir clusterAirbnb
+6. **Start the master node by navigating to the Spark sbin directory:**
+    ```bash
+    cd /home/vagrant/labSpark/spark-3.5.1-bin-hadoop3/sbin./start-master.sh
+7. **Start a worker node in the same directory**
+   ```bash
+   ./start-worker.sh spark://192.168.100.3:7077
+8. **Launch the application:**
+   ```bash
+   cd /home/vagrant/labSpark/spark-3.5.1-bin-hadoop3/bin./spark-submit --master spark://192.168.100.3:7077 --conf        ./spark.executor.memory=1g /home/vagrant/clusterAirbnbsApache/appReservas.py
+9. **Move the clusterAirbnb/ directory to a shared folder:**
+   ```bash
+   mv clusterAirbnb/ /vagrant/ 
+> NOTE: You can now perform various operations with the CSV files. In our case, we upload these CSVs to the cloud using the script.py located in the Power BI folder. We recommend starting the page as admin and exploring the dashboards created.
+
