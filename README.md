@@ -1,4 +1,4 @@
-## Before getting started
+## Before getting started :)
 First, start by cloning the repository using the following command:
 `git clone https://github.com/lapiceroazul4/App_Airbnb.git`
 
