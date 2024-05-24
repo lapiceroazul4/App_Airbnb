@@ -28,6 +28,7 @@ It's essential to have Docker installed beforehand. We recommend using version 2
    - `Pass: admin`
 
 ### Using Docker Swarm:
+> **Recommendation:** The VMs must be named “serverAirbnb” and “workerAirbnb”, otherwise the deployment with Swarm will fail.
 
 1. Navigate to the `Docker/Swarm/` directory.
 2. Execute the following command to initialize the Swarm: `docker swarm init --advertise-addr localhost`.
